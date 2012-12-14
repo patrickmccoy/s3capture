@@ -18,5 +18,8 @@ DAY=`date '+%d'`
 # upload the image to S3
 /usr/local/bin/s3cmd put $FILE "$BUCKET/$YEAR/$MONTH/$DAY/`date '+%Y-%m-%dT%H:%M:%SZ'`.jpg"
 
+# upload the image to S3, calling it the latest
+/usr/local/bin/s3cmd put $FILE "$BUCKET/latest.jpg"
+
 # delete the image from /tmp
 rm $FILE
